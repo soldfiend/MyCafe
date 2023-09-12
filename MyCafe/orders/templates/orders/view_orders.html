@@ -1,0 +1,29 @@
+{% extends 'main/layout.html' %}
+{% block title %}About{% endblock %}
+{% block content %}
+  <h1>Ваши заказы</h1>
+
+  {% if orders %}
+    <ul>
+      {% for order in orders %}
+        <li>
+          Заказ #{{ order.id }} - {{ order.status }}
+          {% if order.status == "готово" %}
+            <button class="btn btn-success">Готово</button>
+
+          {% elif order.status == "не готов" %}
+            <button class="btn btn-warning">Не готов</button>
+          {% else %}
+            <button class="btn btn-warning">В пути</button>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>У вас нет заказов.</p>
+  {% endif %}
+
+  <!-- Добавьте ссылку на страницу корзины (если нужно) -->
+  <a href="{% url 'view_cart' %}" class="btn btn-primary">Перейти в корзину</a>
+
+{% endblock %}
