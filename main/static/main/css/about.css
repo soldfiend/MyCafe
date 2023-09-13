@@ -1,0 +1,536 @@
+
+.d-flex {
+  display: flex;
+}
+.header_menu_png{
+width:50px;
+border-radius: 50px;
+
+}
+.midle_header{
+padding-left: 27%;
+}
+.aling-items-center {
+  align-items: center;
+}
+.container {
+  max-width: 1960px;
+  padding: 0 15px;
+  margin: 0 auto;
+  position: relative;
+}
+.container_header {
+  font-family: "Nunito", sans-serif;
+  color: #fff;
+  background-color: rgb(58, 57, 57);
+}
+.log_btn{
+padding-left: 22%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+/* header start */
+header {
+  background-color: #4883f3;
+
+}
+header .logo {
+  font-size: 40px;
+  font-weight: 900;
+}
+header nav ul {
+  list-style: none;
+}
+header nav > ul > li {
+  font-size: 22px;
+  padding: 0px 10px;
+}
+header nav > ul > li a span i {
+  font-size: 20px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+header nav > ul > li:hover > a {
+  color: rgba(240, 248, 255, 0.595);
+}
+header .button {
+  background-color: #fff;
+  padding: 8px 7px;
+  display: inline-block;
+  font-size: 22px;
+  font-weight: 500;
+  color: black;
+  border-radius: 5px;
+}
+/* ******************************************************* */
+/* ***********************drop down ********************** */
+.drop-down {
+  min-width: 150px;
+  position: absolute;
+  top: 100%;
+  background-color: #4f95ff;
+  box-shadow: 0 0 8px rgb(0, 0, 0);
+  border-radius: 5px;
+  transition: all 0.2s linear;
+  opacity: 0;
+  visibility: hidden;
+}
+.drop-down a {
+  width: 100%;
+  display: inline-block;
+  padding: 10px 0 10px 10px;
+}
+.drop-down a:hover {
+  background-color: #82b4ff;
+}
+
+/* ******************************************************************* */
+/* ***********************drop down hover effect ********************** */
+header nav > ul > li:hover .drop-down {
+  opacity: 1;
+  visibility: visible;
+}
+/* main */
+
+p {
+  text-align: center;
+  font-size: 20px;
+  margin-top: 18px;
+}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.body_container {
+  display: flex;
+  background: #fff;
+  justify-content: flex-end;
+  align-items: flex-end;
+  min-height: 50vh;
+}
+
+.footer {
+  position: relative;
+  width: 100%;
+  background: #3586ff;
+  min-height: 100px;
+  padding: 70px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.social-icon,
+.menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}
+
+.social-icon__item,
+.menu__item {
+  list-style: none;
+}
+
+.social-icon__link {
+  font-size: 2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+}
+.social-icon__link:hover {
+  transform: translateY(-10px);
+}
+
+.menu__link {
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+  text-decoration: none;
+  opacity: 0.75;
+  font-weight: 300;
+}
+
+.menu__link:hover {
+  opacity: 1;
+}
+
+.footer p {
+  color: #fff;
+  margin: 15px 0 10px 0;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.wave {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url("https://i.ibb.co/wQZVxxk/wave.png");
+  background-size: 1000px 100px;
+}
+
+.wave#wave1 {
+  z-index: 1000;
+  opacity: 1;
+  bottom: 0;
+  animation: animateWaves 4s linear infinite;
+}
+
+.wave#wave2 {
+  z-index: 999;
+  opacity: 0.5;
+  bottom: 10px;
+  animation: animate 4s linear infinite !important;
+}
+
+.wave#wave3 {
+  z-index: 1000;
+  opacity: 0.2;
+  bottom: 15px;
+  animation: animateWaves 3s linear infinite;
+}
+
+.wave#wave4 {
+  z-index: 999;
+  opacity: 0.7;
+  bottom: 20px;
+  animation: animate 3s linear infinite;
+}
+
+@keyframes animateWaves {
+  0% {
+    background-position-x: 1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+
+@keyframes animate {
+  0% {
+    background-position-x: -1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+
+.category-breakfast,
+.category-lunch,
+.category-dinner {
+    flex: 1; /* Контейнеры займут равные части доступной ширины */
+    padding: 20px; /* Добавляет отступы внутри контейнеров */
+    border: 1px solid #ccc; /* Добавляет границу для разделения контейнеров */
+    background-color: #f5f5f5; /* Задает фоновый цвет контейнеров */
+}
+.category-lunch{
+    flex: 1; /* Контейнеры займут равные части доступной ширины */
+    padding: 20px; /* Добавляет отступы внутри контейнеров */
+    border: 1px solid #ccc; /* Добавляет границу для разделения контейнеров */
+    background-color: grey; /* Задает фоновый цвет контейнеров */
+}
+.menu-items {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет элементам переноситься на новую строку при необходимости */
+
+    /* Другие стили по вашему выбору, например, отступы между элементами */
+}
+
+.menu-item {
+    flex: 1; /* Элементы будут равномерно расширяться внутри контейнера .menu-items */
+    max-width: 300px; /* Максимальная ширина элемента */
+    margin: 10px; /* Добавляет отступы между элементами */
+    /* Другие стили по вашему выбору, например, цвет фона и высоту */
+}
+.menu-item img {
+    max-width: 100%; /* Максимальная ширина изображения равна ширине контейнера */
+    max-height: 150px; /* Максимальная высота изображения */
+    border-radius: 15%;
+    /* Другие стили по вашему выбору */
+}
+
+.dish-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.dish-image {
+    flex: 0 0 50%; /* Ширина блока для картинки */
+    margin-right: 20px;
+}
+
+.dish-image img {
+    width: 800px;
+    height: 500px;
+    border-radius:25%;
+}
+
+.dish-content {
+    margin-top: 50px;
+    flex: 0 0 25%; /* Ширина блока для текста и кнопок */
+}
+
+.reviews {
+    margin-top: 50px;
+    text-align: center; /* Выравнивание отзывов по центру */
+}
+
+
+
+
+
+/* Стиль для .body-container, который центрирует его по центру экрана */
+/* Стиль для .body-container */
+.body-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh; /* Используем min-height вместо height */
+  background-color: #fff; /* Цвет фона, замените на нужный вам */
+  margin-top: 0px; /* Отступ сверху */
+  margin-bottom: 0; /* Убираем отступ снизу */
+}
+
+
+/* Стиль для .login-container */
+.login-container {
+  background-color: #ffffff; /* Цвет фона контейнера с формой */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Тень контейнера */
+  text-align: center;
+}
+
+/* Стиль для заголовка h1 */
+.login-container h1 {
+  font-size: 24px;
+  margin-bottom: 40px;
+  margin-top: 0; /* Убираем отступ сверху для заголовка */
+}
+
+/* Стиль для сообщения об ошибке (если есть) */
+.login-container p {
+  color: blue; /* Цвет текста ошибки */
+  margin-bottom: 10px;
+}
+
+/* Стиль для .form-group */
+.form-group {
+  margin-bottom: 25px;
+}
+
+/* Стиль для меток (label) */
+.form-group label {
+  display: block;
+  font-weight: bold;
+}
+
+/* Стиль для полей ввода (input) */
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc; /* Цвет рамки */
+  border-radius: 5px;
+  outline: none; /* Убирает контур фокуса */
+}
+
+/* Стиль для кнопки Login */
+.green-button {
+  background-color: #4caf50; /* Цвет фона кнопки */
+  color: #fff; /* Цвет текста кнопки */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Стиль для ссылки "Sign up" */
+.signup-link a {
+  text-decoration: none;
+  color: #4caf50; /* Цвет ссылки */
+}
+
+/* Стиль для ссылки "Sign up" при наведении */
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+
+.container_add_dish {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+.container .col-md-6 {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 400px;
+}
+
+
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+
+
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+select {
+    appearance: none;
+    background: url("down-arrow.png") no-repeat right center;
+    background-size: 20px;
+    padding-right: 30px;
+}
+
+.green-button {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-link {
+    text-decoration: none;
+    color: #4caf50;
+}
+
+.btn-link:hover {
+    text-decoration: underline;
+}
+
+
+/* Добавьте этот CSS для улучшения стилей корзины */
+.cart-container {
+  text-align: center;
+  margin: 20px;
+  padding-top: 40px;
+}
+
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 75px;
+}
+
+.cart-table th, .cart-table td {
+  padding: 10px;
+  border: 1px solid #ccc;
+
+}
+
+.cart-table th {
+  background-color: #aeceff;
+
+}
+
+.quantity-cell {
+  position: relative;
+
+}
+
+.quantity-button {
+  font-size: 18px;
+  padding: 5px 10px;
+  background-color: #ffae35;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius:10px;
+
+}
+
+.remove-link {
+  color: red;
+  text-decoration: none;
+
+}
+
+.total-price {
+  padding-top: 60px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.btn_cart {
+
+  display: inline-block;
+  margin: 25px;
+  padding: 15px 20px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #ffae35;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 30px;
+}
+.btn-secondary{
+background-color: #71aaff;
+}
+.btn_cart-secondary {
+  background-color: #ccc;
+}
+
+/* Стилизация списка заказов */
+.order-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Стилизация элемента заказа */
+.order-item {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Стилизация изображения заказа */
+.order-image {
+  max-width: 100px; /* Установите желаемую максимальную ширину изображения */
+  max-height: 100px; /* Установите желаемую максимальную высоту изображения */
+}
+
+/* Остальные стили могут быть оставлены без изменений */

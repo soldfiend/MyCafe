@@ -1,0 +1,42 @@
+{% extends 'main/layout.html' %}
+{% block title %}Корзина{% endblock %}
+{% block content %}
+  <div class="cart-container">
+    <h2>Корзина</h2>
+    <table class="cart-table">
+      <thead>
+        <tr>
+          <th>Наименование</th>
+          <th>Цена</th>
+          <th>Количество</th>
+          <th>Итого</th>
+          <th>Удалить</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in cart_items %}
+        <tr>
+          <td>{{ item.dish.name }}</td>
+          <td>{{ item.dish.price }} руб.</td>
+          <td class="quantity-cell">
+            <form method="post" action="{% url 'increase_cart_item' item.pk %}">
+              {% csrf_token %}
+              <button type="submit" class="quantity-button">+</button>
+            </form>
+            {{ item.quantity }}
+            <form method="post" action="{% url 'decrease_cart_item' item.pk %}">
+              {% csrf_token %}
+              <button type="submit" class="quantity-button">-</button>
+            </form>
+          </td>
+          <td>{{ item.total_price }} руб.</td>
+          <td><a href="{% url 'remove_from_cart' item.pk %}" class="remove-link">Удалить</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <p class="total-price">Общая стоимость: {{ total_price }} руб.</p>
+    <a href="{% url 'create_order' %}" class="btn_cart btn-primary">Купить</a>
+    <a href="{% url 'menu' %}" class="btn_cart btn-secondary">Продолжить покупки</a>
+  </div>
+{% endblock %}
