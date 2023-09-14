@@ -1,0 +1,36 @@
+{% extends 'main/layout.html' %}
+{% block title %}About{% endblock %}
+{% block content %}
+<div class="body-container">
+    <div class="login-container">
+            <h1>Registration</h1>
+            <form action="{% url 'register' %}" method="post">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    {{ form.username.errors }}
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    {{ form.password1.errors }}
+                    <input type="password" id="password" name="password1" required>
+                </div>
+                <div class="form-group">
+                    <label for="password2">Confirm Password</label>
+                    {{ form.password2.errors }}
+                    <input type="password" id="password2" name="password2" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    {{ form.email.errors }}
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <button type="submit" class="green-button">Register</button>
+            </form>
+            <p class="login-link">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+    </div>
+</div>
+{% endblock %}
+

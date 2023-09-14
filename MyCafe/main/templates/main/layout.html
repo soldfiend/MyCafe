@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>{% block title %}Home{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <script src="{% static 'main/js/main.js' %}"></script>
+
+
+
+</head>
+<body>
+<header class="header">
+    <div class="header-left">
+        <ul class="nav">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            <li><a href="{% url 'menu' %}">Menu</a></li>
+        </ul>
+    </div>
+    {% if not user.is_authenticated %}
+    <div class="header-right">
+        <a href="{% url 'login' %}" class="login">Login</a>
+        <a href="{% url 'register' %}" class="signup">Signup</a>
+    </div>
+    {% else %}
+
+    <div class="header-right">
+        <div class="profile-menu">
+            <span>{{ user.username }}</span>
+            <a href="#" class="avatar-link">
+                <img src="{% static 'main/img/logo_admin.webp' %}" alt="mdo" class="avatar">
+            </a>
+            <ul class="dropdown-menu" id="profile-dropdown">
+                {% for group in user.groups.all %}
+                {% if group.name == "Administration" %}
+                <li><a class="menu-item" href="{% url 'add_dish' %}">Add dish</a></li>
+                <li><a class="menu-item" href="{% url 'admin_orders' %}">Orders</a></li>
+                <li>
+                    <hr class="menu-divider">
+                </li>
+                <li><a class="menu-item" href="{% url 'logout' %}">Sign out</a></li>
+                {% endif %}
+                {% endfor %}
+                {% for group in user.groups.all %}
+                {% if group.name == "Customer" %}
+                <li><a class="menu-item" href="{% url 'view_cart' %}">Basket</a></li>
+                <li><a class="menu-item" href="{% url 'view_orders' %}">Orders</a></li>
+                <li><a class="menu-item" href="{% url 'my_profile' %}">Profile</a></li>
+                <li>
+                    <hr class="menu-divider">
+                </li>
+                <li><a class="menu-item" href="{% url 'logout' %}">Sign out</a></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+
+        </div>
+    </div>
+
+
+    {% endif %}
+
+</header>
+{% block content %}
+<h1>Home</h1>
+{% endblock %}
+
+
+</body>
+</html>
