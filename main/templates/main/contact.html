@@ -1,6 +1,32 @@
 {% extends 'main/layout.html' %}
 {% block title %}Contact{% endblock %}
 {% block content %}
-<h1>Contact</h1>
+<div class="contact">
+    <form class="form_contact" method="post" action="{% url 'contact_view' %}">
+        {% csrf_token %}
+        <h2>CONTACT US</h2>
+        <p type="Name:"><input class="input_contact" name="name" placeholder="Write your name here.."></input></p>
+        <p type="Email:"><input class="input_contact" name="email" placeholder="Let us know how to contact you back.."></input></p>
+        <p type="Message:"><input class="input_contact" name="message" placeholder="What would you like to tell us.."></input></p>
+        <button class="button_contact" type="submit">Send Message</button>
+        <div class="contact_number">
+            <span class="span_number fa fa-phone"></span>001 1023 567
+            <span class="span_number fa fa-envelope-o"></span> contact@company.com
+        </div>
+    </form>
+</div>
+
+<script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
+<div class="contmap" style='overflow:hidden;height:550px;width:100%;'>
+    <div id='gmap_canvas' style='height:100%;width:80%;'></div>
+    <div><small><a href="http://embedgooglemaps.com"> embed google maps </a></small></div>
+    <div><small><a href="http://freedirectorysubmissionsites.com/">free web directories</a></small></div>
+    <style>#gmap_canvas img{max-width:none!important;background:none!important}</style>
+</div>
+<script type='text/javascript'>
+    function init_map(){var myOptions = {zoom:14,center:new google.maps.LatLng(19.075314480255834,72.88153973865361),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(19.075314480255834,72.88153973865361)});infowindow = new google.maps.InfoWindow({content:'<strong>My Location</strong><br>mumbai<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);
+</script>
+
+
 {% endblock %}
 

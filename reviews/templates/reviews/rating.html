@@ -1,0 +1,8 @@
+{% load fontawesome_5 %}
+
+{% for i in range(review.rating) %}
+    <i class="fas fa-star"></i>
+{% endfor %}
+{% for i in range(5 - review.rating) %}
+    <i class="far fa-star"></i>
+{% endfor %}

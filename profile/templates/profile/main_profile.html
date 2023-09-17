@@ -1,11 +1,20 @@
 {% extends 'main/layout.html' %}
 {% block title %}About{% endblock %}
 {% block content %}
-  <h1>Профиль пользователя</h1>
+<br>
+<br>
+<br>
+  <center><h1>Профиль пользователя</h1></center>
+<br>
   <p><strong>Логин:</strong> {{ user.username }}</p>
+<br>
+<br>
   <p><strong>Email:</strong> {{ user.email }}</p>
+<br>
+<br>
   <p><strong>Чат ID Телеграм:</strong> {{ user.telegram_chat_id }}</p>
-  <a href="{% url 'change_password' %}">Изменить пароль</a>
+<br>
+  <center><a class="btn_cart btn-primary" href="{% url 'change_password' %}">Изменить пароль</a></center>
 {% endblock %}
 
 

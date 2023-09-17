@@ -2,119 +2,173 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'main/css/about.css' %}">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800,300" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Croissant+One&display=swap">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800,300" rel="stylesheet" type="text/css">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- Подключение стилей Owl Carousel -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+    <!-- Подключение jQuery (обязательно перед подключением Owl Carousel) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Подключение библиотеки Owl Carousel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}Home{% endblock %}</title>
+    <script>
+        $(document).ready(function(){
+            $(".owl-carousel").owlCarousel({
+                items: 1,
+                loop: true,
+                dots: true, // Показывать точки для навигации
+                autoplay: true, // Включить автопрокрутку
+                autoplayTimeout: 3000, // Интервал автопрокрутки в миллисекундах (7 секунд)
+                autoplaySpeed: 1000, // Скорость автопрокрутки в миллисекундах (1 секунда)
+                smartSpeed: 1000, // Плавность автопрокрутки
+            });
+        });
+    </script>
 
 
 </head>
 <body>
 <div class="container_header">
-  <header>
-    <div class="container">
-      <div class="d-flex  aling-items-center">
-        <a href="{% url 'home' %}" class="logo">Ocean</a>
-        <!-- menu -->
-        <nav class="midle_header">
-          <ul class="d-flex ">
-            <li><a href="{% url 'home' %}">Главная</a></li>
-            <li><a href="{% url 'menu' %}">Меню</a></li>
-            <li><a href="{% url 'contact' %}">Контакты</a></li>
-            <li><a href="javascript:void(0)">Отзывы</a></li>
-            <li><a href="{% url 'about' %}">О нас</a></li>
+    <header>
+        <div class="container">
+            <div class="d-flex  aling-items-center">
+                <a href="{% url 'home' %}" class="logo">Ocean</a>
+                <!-- menu -->
+                <nav class="midle_header">
+                    <ul class="d-flex ">
+                        <li><a class="a_main" href="{% url 'home' %}">Главная</a></li>
+                        <li><a class="a_main" href="{% url 'menu' %}">Меню</a></li>
+                        <li><a class="a_main" href="{% url 'contact' %}">Контакты</a></li>
+                        <li><a class="a_main" href="{% url 'reviews_list' %}">Отзывы</a></li>
+                        <li><a class="a_main" href="{% url 'about' %}">О нас</a></li>
 
 
+                    </ul>
+                </nav>
 
-          </ul>
-        </nav>
+                {% if not user.is_authenticated %}
+                <div class="log_btn">
+                    <a href="{% url 'login' %}" class="a_main button">Вход</a>
+                    <a href="{% url 'register' %}" class="a_main button">Регистрация</a>
+                </div>
+                {% else %}
+                <div class="log_btn">
+                    <nav class="midle_header">
+                        <ul class="d-flex ">
 
-        {% if not user.is_authenticated %}
-        <div class="log_btn">
-        <a href="{% url 'login' %}" class="button">Вход</a>
-        <a href="{% url 'register' %}" class="button">Регистрация</a>
-        </div>
-        {% else %}
-        <div class="log_btn">
-        <nav class="midle_header">
-          <ul class="d-flex ">
+                            <li>
+                                <a href="{% url 'contact' %}"><img src="{% static 'main/img/header_menu.avif' %}"
+                                                                   alt="mdo" class="header_menu_png"> <span><i
+                                        class="fa-solid fa-angle-down"></i></span></a>
+                                <ul class="drop-down">
+                                    {% for group in user.groups.all %}
+                                    {% if group.name == "Administration" %}
+                                    <li><a class="a_main" href="{% url 'add_dish' %}">Добавить блюдо</a></li>
+                                    <li><a class="a_main" href="{% url 'admin_orders' %}">Заказы</a></li>
+                                    <li><a class="a_main" href="{% url 'upload_home_page_photo' %}">Фото на главную</a>
+                                    </li>
+                                    <hr>
+                                    <li><a class="a_main" href="{% url 'logout' %}">Выход</a></li>
+                                    {% endif %}
+                                    {% endfor %}
+                                    {% for group in user.groups.all %}
+                                    {% if group.name == "Customer" %}
+                                    <li><a class="a_main" href="{% url 'view_cart' %}">Корзина</a></li>
+                                    <li><a class="a_main" href="{% url 'view_orders' %}">Заказы</a></li>
+                                    <li><a class="a_main" href="{% url 'my_profile' %}">Профиль</a></li>
+                                    <hr>
+                                    <li><a class="a_main" href="{% url 'logout' %}">Выход</a></li>
+                                    {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            </li>
 
-            <li>
-              <a href="{% url 'contact' %}"><img src="{% static 'main/img/header_menu.avif' %}" alt="mdo" class="header_menu_png"> <span><i class="fa-solid fa-angle-down"></i></span></a>
-              <ul class="drop-down">
-                {% for group in user.groups.all %}
-                {% if group.name == "Administration" %}
-                <li><a href="{% url 'add_dish' %}">Добавить блюдо</a></li>
-                <li><a href="{% url 'admin_orders' %}">Заказы</a></li>
-                <hr>
-                <li><a href="{% url 'logout' %}">Выход</a></li>
+
+                        </ul>
+                    </nav>
+                </div>
                 {% endif %}
-                {% endfor %}
-                {% for group in user.groups.all %}
-                {% if group.name == "Customer" %}
-                <li><a href="{% url 'view_cart' %}">Корзина</a></li>
-                <li><a href="{% url 'view_orders' %}">Заказы</a></li>
-                <li><a href="{% url 'my_profile' %}">Профиль</a></li>
-                <hr>
-                <li><a href="{% url 'logout' %}">Выход</a></li>
-                {% endif %}
-                {% endfor %}
-              </ul>
-            </li>
-
-
-          </ul>
-        </nav>
+            </div>
         </div>
-        {% endif %}
-      </div>
-    </div>
-  </header>
-  </div>
-  <main>
+    </header>
+</div>
+<main>
     {% block content %}
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    {% endblock %}
-  </main>
-<div class="body_container">
-  <footer class="footer">
-    <div class="waves">
-      <div class="wave" id="wave1"></div>
-      <div class="wave" id="wave2"></div>
-      <div class="wave" id="wave3"></div>
-      <div class="wave" id="wave4"></div>
-    </div>
-    <ul class="social-icon">
-      <li class="social-icon__item"><a class="social-icon__link" href="#">
-          <ion-icon name="logo-facebook"></ion-icon>
-        </a></li>
-      <li class="social-icon__item"><a class="social-icon__link" href="#">
-          <ion-icon name="logo-twitter"></ion-icon>
-        </a></li>
-      <li class="social-icon__item"><a class="social-icon__link" href="#">
-          <ion-icon name="logo-linkedin"></ion-icon>
-        </a></li>
-      <li class="social-icon__item"><a class="social-icon__link" href="#">
-          <ion-icon name="logo-instagram"></ion-icon>
-        </a></li>
-    </ul>
-    <ul class="menu">
-      <li class="menu__item"><a class="menu__link" href="{% url 'home' %}">Home</a></li>
-      <li class="menu__item"><a class="menu__link" href="{% url 'about' %}">About</a></li>
-      <li class="menu__item"><a class="menu__link" href="{% url 'contact' %}">Contact</a></li>
 
-    </ul>
-    <p>&copy;2023 Kirill Yerokhin | Made by human</p>
-  </footer>
-  <div/>
+    <div class="reviews">
+        <br>
+        <div class="owl-carousel owl-theme">
+            {% for photo in home_page_photos %}
+            <div class="item">
+                <center><img src="{{ photo.image.url }}" alt="{{ photo.image.name }}" class="img-fluid"
+                             style="width:1200px; border-radius: 20px;"></center>
+            </div>
+            {% empty %}
+            <p class="p_photo">На данный момент нет загруженных изображений.</p>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="container text-center">
+        <br>
+        <center><h1 class="p_about">Добро пожаловать в ресторан "Ocean"!</h1></center>
+        <p class="a_main">
+            Насладитесь неповторимым опытом у нас в ресторане, где мы приготовим для вас лучшие блюда морской кухни.
+            Наши шеф-повары уделяют особое внимание качеству и свежести ингредиентов, чтобы ваши вкусовые рецепторы
+            испытали настоящее наслаждение.
+        </p>
+    </div>
+
+    {% endblock %}
+</main>
+<div class="body_container">
+    <footer class="footer">
+        <div class="waves">
+            <div class="wave" id="wave1"></div>
+            <div class="wave" id="wave2"></div>
+            <div class="wave" id="wave3"></div>
+            <div class="wave" id="wave4"></div>
+        </div>
+        <ul class="social-icon">
+            <li class="social-icon__item"><a class="social-icon__link" href="#">
+                <ion-icon name="logo-facebook"></ion-icon>
+            </a></li>
+            <li class="social-icon__item"><a class="social-icon__link" href="#">
+                <ion-icon name="logo-twitter"></ion-icon>
+            </a></li>
+            <li class="social-icon__item"><a class="social-icon__link" href="#">
+                <ion-icon name="logo-linkedin"></ion-icon>
+            </a></li>
+            <li class="social-icon__item"><a class="social-icon__link" href="#">
+                <ion-icon name="logo-instagram"></ion-icon>
+            </a></li>
+        </ul>
+        <ul class="menu">
+            <li class="menu__item"><a class="menu__link" href="{% url 'home' %}">Home</a></li>
+            <li class="menu__item"><a class="menu__link" href="{% url 'about' %}">About</a></li>
+            <li class="menu__item"><a class="menu__link" href="{% url 'contact' %}">Contact</a></li>
+
+        </ul>
+        <p>&copy;2023 Kirill Yerokhin | Made by human</p>
+    </footer>
+    <div/>
 </body>
 </html>
 

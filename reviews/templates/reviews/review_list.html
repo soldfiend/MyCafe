@@ -1,0 +1,83 @@
+{% extends 'main/layout.html' %}
+{% block title %}Отзывы{% endblock %}
+{% block content %}
+
+<div class="reviews">
+
+    <h1 class="a_main">Отзывы:</h1>
+    <br>
+    {% if user.is_authenticated %}
+    <!-- Форма добавления отзыва -->
+    <form class="review-form" method="post" action="{% url 'add_review' %}">
+        {% csrf_token %}
+        <label class="a_main_3" for="text">Текст отзыва:</label><br>
+        <textarea id="text" name="text" rows="4" cols="50" style="width:500px;"></textarea><br>
+
+        <label class="a_main_3" for="rating">Рейтинг:</label><br>
+        <div class="rating-area">
+            <input type="radio" id="star-5" name="rating" value="5">
+            <label for="star-5" title="Оценка «5»"></label>
+            <input type="radio" id="star-4" name="rating" value="4">
+            <label for="star-4" title="Оценка «4»"></label>
+            <input type="radio" id="star-3" name="rating" value="3">
+            <label for="star-3" title="Оценка «3»"></label>
+            <input type="radio" id="star-2" name="rating" value="2">
+            <label for="star-2" title="Оценка «2»"></label>
+            <input type="radio" id="star-1" name="rating" value="1">
+            <label for="star-1" title="Оценка «1»"></label>
+            <button type="submit" class="a_main_4 btn_cart btn-primary">Добавить отзыв</button>
+        </div>
+
+
+    </form>
+
+    <br>
+
+{% endif %}
+<div class="container mt-5">
+    <!-- Отзывы -->
+    <br>
+    <div class="reviews-list mt-3">
+        {% for review in reviews %}
+        <div class="review-item">
+            <figure class="snip1533">
+                <figcaption>
+                    <blockquote>
+                        <p>{{ review.text }}</p>
+                    </blockquote>
+                    <h3>{{ review.user.username }}</h3>
+                    <h4>{{ review.user.company }}</h4>
+
+                    <div class="rating-area" data-rating="{{ review.rating }}">
+                        <div class="rating-result">
+                            {% for _ in "12345" %}
+                            <span class="star {% if forloop.counter <= review.rating %}active{% endif %}"></span>
+                            {% endfor %}
+
+                        </div>
+                        <p class="a_main_3">{{ review.created_at }}</p>
+                    </div>
+
+                    </figcaption>
+                </figure>
+                    {% for group in user.groups.all %}
+                    {% if group.name == "Administration" %}
+                    <form method="post" action="{% url 'delete_review' review.pk %}">
+                        {% csrf_token %}
+                        <button type="submit" class="a_main_4 btn_cart btn-danger">Удалить</button>
+                    </form>
+                    {% endif %}
+                    {% endfor %}
+
+
+        </div>
+        {% empty %}
+        <p class="a_main_3">Пока нет отзывов.</p>
+        {% endfor %}
+    </div>
+</div>
+
+</div>
+
+
+{% endblock %}

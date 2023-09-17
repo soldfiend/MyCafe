@@ -1,0 +1,24 @@
+{% extends 'main/layout.html' %}
+{% block title %}Загрузка изображений на главную страницу{% endblock %}
+{% block content %}
+<div class="reviews">
+    <br>
+    <h1 class="mb-4">Загрузка изображений на главную страницу</h1>
+    <form method="post" enctype="multipart/form-data" class="mb-4">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br>
+        <button type="submit" class="btn_cart btn-secondary">Загрузить изображение</button>
+    </form>
+
+    {% for photo in photos %}
+
+        <img src="{{ photo.image.url }}" alt="{{ photo.title }}" style="width:500px;">
+        <form method="post" action="{% url 'delete_photo' photo.id %}">
+            {% csrf_token %}
+            <button type="submit" class="btn_cart btn-danger">Удалить</button>
+        </form>
+
+    {% endfor %}
+</div>
+    {% endblock %}

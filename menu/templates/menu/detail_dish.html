@@ -6,13 +6,16 @@
         <img src="{{ dish.image_url }}" alt="{{ dish.name }}" style="width:800px;height:500px;">
     </div>
     <div class="dish-content">
-        <h1>{{ dish.name }}</h1>
-        <h2>{{ dish.description }}</h2>
-        <h3>Цена: {{ dish.price }} руб.</h3>
+        <h1 class="a_main">{{ dish.name }}</h1>
+        <br>
+        <h2 class="a_main">{{ dish.description }}</h2>
+        <br>
+        <h3 class="a_main">Цена: {{ dish.price }} руб.</h3>
+        <br>
         {% for group in user.groups.all %}
             {% if group.name == "Administration" %}
                 <a href="{% url 'dish_delete' dish.pk %}"><button class="red-button">Delete</button></a>
-                <a href="{% url 'change_dish' dish.pk %}"><button class="blue-button">Change</button></a>
+                <a href="{% url 'change_dish' dish.pk %}"><button class="green-button">Change</button></a>
             {% endif %}
         {% endfor %}
         {% for group in user.groups.all %}
@@ -23,23 +26,4 @@
     </div>
 </div>
 
-<div class="reviews">
-    <h2>Отзывы:</h2>
-    <ul>
-      {% for review in reviews %}
-        <li>{{ review.text }} ({{ review.user.username }})</li>
-      {% empty %}
-        <li>Пока нет отзывов.</li>
-      {% endfor %}
-    </ul>
-
-    <h2>Оставьте свой отзыв:</h2>
-    <form method="post" action="{% url 'reviews:add_review' %}">
-      {% csrf_token %}
-      <input type="hidden" name="dish_id" value="{{ dish.id }}">
-      <label for="review_text">Текст отзыва:</label><br>
-      <textarea id="review_text" name="review_text" rows="4" cols="50" style="width:500px;" ></textarea><br>
-      <input type="submit" class="btn_cart btn-primary" value="Добавить отзыв">
-    </form>
-</div>
 {% endblock %}

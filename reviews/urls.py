@@ -2,11 +2,9 @@
 from django.urls import path
 from . import views
 
-app_name = 'reviews'  # Добавьте это, чтобы использовать пространство имен
-
 urlpatterns = [
-    path('add_review/', views.add_review, name='add_review'),
+    path('', views.ReviewListView.as_view(), name='reviews_list'),  # Список отзывов
+    path('add/', views.add_review, name='add_review'),  # Добавление отзыва
+    path('delete_review/<int:pk>/', views.ReviewDeleteView.as_view(), name='delete_review'),
 
-    # Пример URL-шаблона
-    # Другие URL-шаблоны вашего приложения
 ]

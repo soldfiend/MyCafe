@@ -1,7 +1,9 @@
+# reviews/forms.py
 from django import forms
-from .models import Comment  # Импортируйте модель Comment
+from .models import Review
 
-class CommentForm(forms.ModelForm):
+
+class ReviewForm(forms.ModelForm):
     class Meta:
-        model = Comment
-        fields = ['text']  # Укажите поля, которые должны отображаться в форме
+        model = Review
+        fields = ['text', 'rating']

@@ -1,9 +1,0 @@
-{% extends 'main/layout.html' %}
-{% block title %}User{% endblock %}
-{% block content %}
-<h1>User: {{ user.username }}</h1>
-<h1>ChatID: {{ user.telegram_chat_id }}</h1>
-{% if user.is_authenticated %}
-    <h1> User is registered </h1>
-{% endif %}
-{% endblock %}

@@ -140,7 +140,7 @@ def update_order_status(request, order_id):
             form.save()
 
             # Если статус заказа изменился на 'готово', отправьте сообщение в Telegram
-            if form.cleaned_data['status'] == 'готово':
+            if form.cleaned_data['status'] == 'готово' and order.user.telegram_chat_id:
                 chat_id = order.user.telegram_chat_id  # Получите chat_id пользователя
                 message_text = f'Ваш заказ готов!'  # Текст сообщения
                 asyncio.run(send_telegram_message_async(chat_id, message_text))  # Отправьте сообщение

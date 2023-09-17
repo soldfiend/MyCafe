@@ -25,7 +25,7 @@ padding-left: 27%;
   background-color: rgb(58, 57, 57);
 }
 .log_btn{
-padding-left: 22%;
+padding-left: 20%;
 }
 
 a {
@@ -70,6 +70,7 @@ header .button {
 .drop-down {
   min-width: 150px;
   position: absolute;
+  z-index: 9999;
   top: 100%;
   background-color: #4f95ff;
   box-shadow: 0 0 8px rgb(0, 0, 0);
@@ -122,7 +123,7 @@ p {
   width: 100%;
   background: #3586ff;
   min-height: 100px;
-  padding: 70px 50px;
+  padding: 100px 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -249,17 +250,17 @@ p {
 }
 .menu-items {
     display: flex;
-    flex-wrap: wrap; /* Позволяет элементам переноситься на новую строку при необходимости */
-
-    /* Другие стили по вашему выбору, например, отступы между элементами */
+    flex-wrap: wrap; /* Элементы переносятся на новый ряд, если не помещаются */
+    align-items: center; /* Выравнивание элементов по центру */
 }
 
 .menu-item {
-    flex: 1; /* Элементы будут равномерно расширяться внутри контейнера .menu-items */
-    max-width: 300px; /* Максимальная ширина элемента */
+    flex: 0 0 calc(20% - 20px); /* Распределение элементов в 3 столбца (при 3 элементах в ряду) */
+    max-width: calc(20% - 20px); /* Максимальная ширина элемента */
     margin: 10px; /* Добавляет отступы между элементами */
-    /* Другие стили по вашему выбору, например, цвет фона и высоту */
+    /* Другие стили по вашему выбору, например, цвет фона и высоту *//
 }
+
 .menu-item img {
     max-width: 100%; /* Максимальная ширина изображения равна ширине контейнера */
     max-height: 150px; /* Максимальная высота изображения */
@@ -291,13 +292,16 @@ p {
 }
 
 .reviews {
-    margin-top: 50px;
+    margin-top: 5px;
     text-align: center; /* Выравнивание отзывов по центру */
 }
 
 
 
+.contmap{
+    padding-left:18%;
 
+}
 
 /* Стиль для .body-container, который центрирует его по центру экрана */
 /* Стиль для .body-container */
@@ -364,7 +368,15 @@ p {
   cursor: pointer;
   font-weight: bold;
 }
-
+.red-button {
+  background-color:  #B00000; /* Цвет фона кнопки */
+  color: #fff; /* Цвет текста кнопки */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
 /* Стиль для ссылки "Sign up" */
 .signup-link a {
   text-decoration: none;
@@ -510,7 +522,9 @@ background-color: #71aaff;
 .btn_cart-secondary {
   background-color: #ccc;
 }
-
+.btn-danger{
+background-color: blue;
+}
 /* Стилизация списка заказов */
 .order-list {
   display: flex;
@@ -534,3 +548,241 @@ background-color: #71aaff;
 }
 
 /* Остальные стили могут быть оставлены без изменений */
+
+.container_photo {
+  display: flex;
+  align-items: center;
+
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400);
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+.snip1533 {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  color: #9e9e9e;
+  display: inline-block;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 16px;
+  margin: 35px 10px 10px;
+  max-width: 310px;
+  min-width: 250px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border-top: 5px solid #d2652d;
+}
+
+.snip1533 *,
+.snip1533 *:before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+}
+
+.snip1533 figcaption {
+  padding: 13% 10% 12%;
+}
+
+.snip1533 figcaption:before {
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  color: #d2652d;
+  content: "\f10e";
+  font-family: 'FontAwesome';
+  font-size: 32px;
+  font-style: normal;
+  left: 50%;
+  line-height: 60px;
+  position: absolute;
+  top: -30px;
+  width: 60px;
+}
+
+.snip1533 h3 {
+  color: #3c3c3c;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 24px;
+  margin: 10px 0 5px;
+}
+
+.snip1533 h4 {
+  font-weight: 400;
+  margin: 0;
+  opacity: 0.5;
+}
+
+.snip1533 blockquote {
+  font-style: italic;
+  font-weight: 300;
+  margin: 0 0 20px;
+}
+
+
+/* Demo purposes only */
+
+
+
+/* Стили для контейнера с отзывами */
+.reviews-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Стили для каждого отзыва */
+.review-item {
+  width: calc(33.33% - 20px); /* 3 отзыва в ряд с небольшим отступом между ними */
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+/* Стили для создания отступа между отзывами в ряду */
+.review-item:nth-child(3n) {
+  margin-right: 0; /* Убрать правый отступ для последнего отзыва в ряду */
+}
+
+/* Медиа-запрос для адаптивности */
+@media (max-width: 767px) {
+  .review-item {
+    width: 100%; /* Отзывы занимают всю ширину на мобильных устройствах */
+  }
+}
+
+.rating-area {
+	overflow: hidden;
+	width: 265px;
+	margin: 0 auto;
+}
+.rating-area:not(:checked) > input {
+	display: none;
+}
+.rating-area:not(:checked) > label {
+	float: right;
+	width: 53px;
+	padding: 0;
+	cursor: pointer;
+	font-size: 32px;
+	line-height: 32px;
+	color: lightgrey;
+	text-shadow: 1px 1px #bbb;
+}
+.rating-area:not(:checked) > label:before {
+	content: '★';
+}
+.rating-area > input:checked ~ label {
+	color: gold;
+	text-shadow: 1px 1px #c60;
+}
+.rating-area:not(:checked) > label:hover,
+.rating-area:not(:checked) > label:hover ~ label {
+	color: gold;
+}
+.rating-area > input:checked + label:hover,
+.rating-area > input:checked + label:hover ~ label,
+.rating-area > input:checked ~ label:hover,
+.rating-area > input:checked ~ label:hover ~ label,
+.rating-area > label:hover ~ input:checked ~ label {
+	color: gold;
+	text-shadow: 1px 1px goldenrod;
+}
+.rate-area > label:active {
+	position: relative;
+}
+
+
+.rating-result {
+	width: 265px;
+	margin: 0 auto;
+}
+.rating-result span {
+	padding: 0;
+	font-size: 32px;
+	margin: 0 3px;
+	line-height: 1;
+	color: lightgrey;
+	text-shadow: 1px 1px #bbb;
+}
+.rating-result > span:before {
+	content: '★';
+}
+.rating-result > span.active {
+	color: gold;
+	text-shadow: 1px 1px #c60;
+}
+
+.contact_number{content:'Hi';position:absolute;bottom:-15px;right:-20px;background:#50505a;color:#fff;width:320px;padding:16px 4px 16px 0;border-radius:6px;font-size:13px;box-shadow:10px 10px 40px -14px #000}
+.span_number{margin:0 5px 0 15px}
+
+.form_contact{
+width:340px;
+height:440px;
+background:#e6e6e6;
+border-radius:8px;
+box-shadow:0 0 40px -10px #000;margin:calc(30vh - 220px) auto;
+padding:20px 30px;max-width:calc(100vw - 40px);
+box-sizing:border-box;font-family:'Montserrat',sans-serif;
+position:relative
+}
+
+.input_contact{
+width:100%;
+padding:10px;
+box-sizing:border-box;
+background:none;
+outline:none;
+resize:none;
+border:0;
+font-family:'Montserrat',sans-serif;
+transition:all .3s;
+border-bottom:2px solid #bebed2
+}
+.input_contact:focus{
+border-bottom:2px solid #78788c
+}
+
+.button_contact{float:right;padding:8px 12px;margin:8px 0 0;font-family:'Montserrat',sans-serif;border:2px solid #78788c;background:0;color:#5a5a6e;cursor:pointer;transition:all .3s}
+.button_contact:hover{background:#78788c;color:#fff}
+.p_about{
+font-family: 'Playfair Display', serif;
+}
+.a_main_1{
+color:green;
+font-family: 'Libre Baskerville', serif;
+}
+.a_main_2{
+font-family: 'Libre Baskerville', serif;
+}
+.a_main_3{
+font-family: 'Libre Baskerville', serif;
+font-size: 20px;
+}
+.a_main_4{
+font-family: 'Libre Baskerville', serif;
+font-size: 16px;
+}
+.a_main{
+font-family: 'Lora', serif;
+font-family: 'Playfair Display', serif;
+}
+.about-section {
+
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+
+
+
+
+
+

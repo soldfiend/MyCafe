@@ -2,35 +2,37 @@
 {% block title %}Ваши заказы{% endblock %}
 {% block content %}
 <div class="container">
-  <h1 class="mt-5">Ваши заказы</h1>
-
+  <br>
+  <center><h2 class="a_main">Ваши заказы:</h2></center>
+  <br>
   {% if order_info_list %}
     <div class="order-list mt-4">
       {% for order_info in order_info_list %}
       <div class="order-item">
-        <h3>Заказ #{{ order_info.order.id }}</h3>
-        <p>Статус: {{ order_info.order.status }}</p>
+        <h3 class="a_main">Заказ #{{ order_info.order.id }}</h3>
+        <p class="a_main_1">Статус: {{ order_info.order.status }}</p>
+        <br>
 
-        <h4>Список блюд в заказе:</h4>
+        <h4 class="a_main">Список блюд в заказе:</h4>
         <ul>
           {% for ordered_item in order_info.ordered_items %}
           <li>
-            <p>Название блюда: {{ ordered_item.dish.name }}</p>
-            <p>Цена: {{ ordered_item.dish.price|floatformat:2 }} руб.</p>
-            <p>Количество: {{ ordered_item.quantity }}</p>
-            <p>Итого за блюдо: {{ ordered_item.dish.price }} руб.</p>
+            <p class="a_main_2">Название блюда: {{ ordered_item.dish.name }}</p>
+            <p class="a_main_2">Цена: {{ ordered_item.dish.price|floatformat:2 }} руб.</p>
+            <p class="a_main_2">Количество: {{ ordered_item.quantity }}</p>
+
 
           </li>
           {% endfor %}
         </ul>
 
-        <p>Общая стоимость заказа: {{ order_info.total_price|floatformat:2 }} руб.</p>
+        <p class="a_main_2">Общая стоимость заказа: {{ order_info.total_price|floatformat:2 }} руб.</p>
       </div>
       {% endfor %}
-      <a href="{% url 'view_cart' %}" class="btn_cart btn-secondary">Перейти в корзину</a>
+      <a href="{% url 'view_cart' %}" class="a_main btn_cart btn-secondary">Перейти в корзину</a>
     </div>
   {% else %}
-    <p>У вас нет заказов.</p>
+    <p class="a_main_2">У вас нет заказов.</p>
   {% endif %}
 
 </div>

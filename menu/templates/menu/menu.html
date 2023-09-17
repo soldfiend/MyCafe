@@ -1,16 +1,17 @@
 {% extends 'main/layout.html' %}
 {% block title %}Menu{% endblock %}
 {% block content %}
+
 <div class="container-dish">
     <!-- Завтрак -->
     <div class="category-breakfast">
-        <h2>Завтрак</h2>
+        <h2 class="a_main">Завтрак</h2>
         <div class="menu-items">
             {% for dish in breakfast_items %}
             <div class="menu-item">
                 <img src="{{ dish.image_url }}" alt="{{ dish.name }}">
-                <h3>{{ dish.name }}</h3>
-                <p>Цена: {{ dish.price }} руб.</p>
+                <h3 class="a_main">{{ dish.name }}</h3>
+                <p class="a_main">Цена: {{ dish.price }} руб.</p>
                 {% for group in user.groups.all %}
                     {% if group.name == "Administration" %}
                         <a href="{% url 'dish_detail' dish.pk %}"><button class="green-button">Open</button></a>
@@ -30,13 +31,13 @@
 
     <!-- Обед -->
     <div class="category-lunch">
-        <h2>Обед</h2>
+        <h2 class="a_main">Обед</h2>
         <div class="menu-items">
             {% for dish in lunch_items %}
             <div class="menu-item">
                 <img src="{{ dish.image_url }}" alt="{{ dish.name }}">
-                <h3>{{ dish.name }}</h3>
-                <p>Цена: {{ dish.price }} руб.</p>
+                <h3 class="a_main">{{ dish.name }}</h3>
+                <p class="a_main">Цена: {{ dish.price }} руб.</p>
                 {% for group in user.groups.all %}
                     {% if group.name == "Administration" %}
                         <a href="{% url 'dish_detail' dish.pk %}"><button class="green-button">Open</button></a>
@@ -56,13 +57,13 @@
 
     <!-- Ужин -->
     <div class="category-dinner">
-        <h2>Ужин</h2>
+        <h2 class="a_main">Ужин</h2>
         <div class="menu-items">
             {% for dish in dinner_items %}
             <div class="menu-item">
                 <img src="{{ dish.image_url }}" alt="{{ dish.name }}">
-                <h3>{{ dish.name }}</h3>
-                <p>Цена: {{ dish.price }} руб.</p>
+                <h3 class="a_main">{{ dish.name }}</h3>
+                <p class="a_main">Цена: {{ dish.price }} руб.</p>
                 {% for group in user.groups.all %}
                     {% if group.name == "Administration" %}
                         <a href="{% url 'dish_detail' dish.pk %}"><button class="green-button">Open</button></a>

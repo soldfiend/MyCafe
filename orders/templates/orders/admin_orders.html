@@ -2,47 +2,48 @@
 {% block title %}Ваши заказы{% endblock %}
 {% block content %}
 <div class="container">
-  <h1 class="mt-5">Ваши заказы</h1>
-
+    <br>
+  <center><h1 class="a_main">Ваши заказы:</h1></center>
+<br>
   {% if orders %}
     <div class="order-list mt-4">
       {% for order in orders %}
       <div class="order-item">
-        <h3>Заказ #{{ order.id }}</h3>
-        <p>Статус: {{ order.status }}</p>
+        <h3 class="a_main">Заказ #{{ order.id }}</h3>
+        <p class="a_main_1">Статус: {{ order.status }}</p>
 
-        <h4>Список блюд в заказе:</h4>
+        <h4 class="a_main">Список блюд в заказе:</h4>
         <ul>
           {% for ordered_item in order.ordered_items.all %}
           <li>
-            <p>Название блюда: {{ ordered_item.dish.name }}</p>
-            <p>Количество: {{ ordered_item.quantity }}</p>
-            <p>Итого: {{ ordered_item.dish.price|floatformat:2 }} руб.</p>
+            <p class="a_main_2">Название блюда: {{ ordered_item.dish.name }}</p>
+            <p class="a_main_2">Количество: {{ ordered_item.quantity }}</p>
+            <p class="a_main_2">Итого: {{ ordered_item.dish.price|floatformat:2 }} руб.</p>
           </li>
           {% endfor %}
         </ul>
 
-        <p>Общая стоимость заказа: {{ order.total_price|floatformat:2 }} руб.</p>
+        <p class="a_main_2">Общая стоимость заказа: {{ order.total_price|floatformat:2 }} руб.</p>
 
         <!-- Форма для изменения статуса заказа и удаления заказа с отступом между кнопками -->
         <form method="post" action="{% url 'update_order_status' order.id %}" style="display: inline-block;">
             {% csrf_token %}
-            <label for="status">Изменить статус:</label>
+            <label class="a_main_2" for="status">Изменить статус:</label>
             <select name="status" id="status">
                 <option value="не готов" {% if order.status == 'не готов' %}selected{% endif %}>Не готов</option>
                 <option value="готово" {% if order.status == 'готово' %}selected{% endif %}>Готово</option>
                 <option value="в пути" {% if order.status == 'в пути' %}selected{% endif %}>В пути</option>
             </select>
-            <button type="submit" class="btn_cart btn-secondary" style="margin-right:-100px;">Изменить</button>
+            <button type="submit" class="a_main btn_cart btn-secondary" style="margin-right:-100px;">Изменить</button>
         </form>
 
         <form method="post" action="{% url 'delete_order' order.id %}" style="display: inline-block;">
             {% csrf_token %}
-            <button type="submit" class="btn_cart btn-secondary">Удалить заказ</button>
+            <button type="submit" class="a_main btn_cart btn-red">Удалить заказ</button>
         </form>
       </div>
       {% endfor %}
-      <a href="{% url 'view_cart' %}" class="btn_cart btn-secondary">Перейти в корзину</a>
+      <a href="{% url 'view_cart' %}" class="a_main btn_cart btn-secondary">Перейти в корзину</a>
     </div>
   {% else %}
     <p>У вас нет заказов.</p>

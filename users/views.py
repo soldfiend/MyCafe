@@ -6,9 +6,6 @@ from django.contrib.auth.models import Group
 
 # Create your views here.
 
-def user(request):
-    return render(request, 'users/test_user.html')
-
 
 def login_view(request):
     if request.method == 'POST':
@@ -17,7 +14,7 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('user')  # Перенаправление на главную страницу после входа
+            return redirect('home')  # Перенаправление на главную страницу после входа
         else:
             # Обработка неверных учетных данных
             error_message = "Invalid username or password."
@@ -45,5 +42,4 @@ def register_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('user')
-
+    return redirect('home')
