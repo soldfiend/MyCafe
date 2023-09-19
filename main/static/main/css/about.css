@@ -1,9 +1,11 @@
-
+body{
+background-color: #c2e1f2;
+}
 .d-flex {
   display: flex;
 }
 .header_menu_png{
-width:50px;
+width:42px;
 border-radius: 50px;
 
 }
@@ -34,7 +36,7 @@ a {
 }
 /* header start */
 header {
-  background-color: #4883f3;
+  background-color: #4992ff;
 
 }
 header .logo {
@@ -72,7 +74,7 @@ header .button {
   position: absolute;
   z-index: 9999;
   top: 100%;
-  background-color: #4f95ff;
+  background-color: #5d9eff;
   box-shadow: 0 0 8px rgb(0, 0, 0);
   border-radius: 5px;
   transition: all 0.2s linear;
@@ -112,10 +114,10 @@ p {
 
 .body_container {
   display: flex;
-  background: #fff;
+  background: #c2e1f2;
   justify-content: flex-end;
   align-items: flex-end;
-  min-height: 50vh;
+  min-height: 55vh;
 }
 
 .footer {

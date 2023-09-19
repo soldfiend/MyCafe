@@ -71,13 +71,12 @@
                 </div>
                 {% else %}
                 <div class="log_btn">
-                    <nav class="midle_header">
+                    <nav class="midle_header ">
                         <ul class="d-flex ">
 
                             <li>
                                 <a href="{% url 'contact' %}"><img src="{% static 'main/img/header_menu.avif' %}"
-                                                                   alt="mdo" class="header_menu_png"> <span><i
-                                        class="fa-solid fa-angle-down"></i></span></a>
+                                                                   alt="mdo" class="header_menu_png"></a>
                                 <ul class="drop-down">
                                     {% for group in user.groups.all %}
                                     {% if group.name == "Administration" %}
