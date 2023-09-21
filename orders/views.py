@@ -103,7 +103,7 @@ def view_orders(request):
 
 def admin_orders(request):
     # Получите список всех заказов администратора
-    orders = Order.objects.all()
+    orders = Order.objects.all().order_by('-created_at')
 
     if request.method == 'POST':
         form = UpdateOrderStatusForm(request.POST)  # Используйте форму для обработки POST-запроса

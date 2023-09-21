@@ -12,9 +12,18 @@
   <p><strong>Email:</strong> {{ user.email }}</p>
 <br>
 <br>
-  <p><strong>Чат ID Телеграм:</strong> {{ user.telegram_chat_id }}</p>
+  {% if user.telegram_chat_id == None %}
+  <center><p class="red-border">Телеграм не подключен</p></center>
+{% else %}
+<center><p class="green-border">Телеграм подключен</p></center>
+{% endif %}
 <br>
-  <center><a class="btn_cart btn-primary" href="{% url 'change_password' %}">Изменить пароль</a></center>
+<br>
+<br>
+  <center><a class="go-button" href="{% url 'change_password' %}">Изменить пароль</a></center>
+<br>
+<br>
+<br>
 {% endblock %}
 
 

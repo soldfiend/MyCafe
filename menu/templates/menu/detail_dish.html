@@ -14,13 +14,13 @@
         <br>
         {% for group in user.groups.all %}
             {% if group.name == "Administration" %}
-                <a href="{% url 'dish_delete' dish.pk %}"><button class="red-button">Delete</button></a>
-                <a href="{% url 'change_dish' dish.pk %}"><button class="green-button">Change</button></a>
+                <a href="{% url 'dish_delete' dish.pk %}"><button class="dell-button">Удалить</button></a>
+                <a href="{% url 'change_dish' dish.pk %}"><button class="blue-button">Изменить</button></a>
             {% endif %}
         {% endfor %}
         {% for group in user.groups.all %}
             {% if group.name == "Customer" %}
-                <a href="{% url 'add_to_cart' dish.pk %}"><button class="green-button">Buy</button></a>
+                <a href="{% url 'add_to_cart' dish.pk %}"><button class="green-button">Купить</button></a>
             {% endif %}
         {% endfor %}
     </div>

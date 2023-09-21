@@ -29,10 +29,23 @@
         <p class="a_main_2">Общая стоимость заказа: {{ order_info.total_price|floatformat:2 }} руб.</p>
       </div>
       {% endfor %}
-      <a href="{% url 'view_cart' %}" class="a_main btn_cart btn-secondary">Перейти в корзину</a>
+      <a href="{% url 'menu' %}" class="blue-button">Перейти в меню</a>
     </div>
+      <br>
   {% else %}
+
     <p class="a_main_2">У вас нет заказов.</p>
+    <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
   {% endif %}
 
 </div>

@@ -30,13 +30,16 @@
             </form>
           </td>
           <td class="a_main_2">{{ item.total_price }} руб.</td>
-          <td><a href="{% url 'remove_from_cart' item.pk %}" class="red-button">Удалить</a></td>
+          <td><a href="{% url 'remove_from_cart' item.pk %}" class="dell-button">Удалить</a></td>
         </tr>
         {% endfor %}
       </tbody>
     </table>
     <p class="a_main_2">Общая стоимость: {{ total_price }} руб.</p>
-    <a href="{% url 'create_order' %}" class="a_main_2 btn_cart btn-primary">Купить</a>
-    <a href="{% url 'menu' %}" class="a_main_2 btn_cart btn-secondary">Продолжить покупки</a>
+    <br>
+    <br>
+    <br>
+    <a href="{% url 'create_order' %}" class="green-button">Купить</a>
+    <a href="{% url 'menu' %}" class="a_main_2 blue-button">Продолжить покупки</a>
   </div>
 {% endblock %}

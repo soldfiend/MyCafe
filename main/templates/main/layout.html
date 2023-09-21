@@ -41,6 +41,7 @@
                 smartSpeed: 1000, // Плавность автопрокрутки
             });
         });
+
     </script>
 
 
@@ -49,7 +50,7 @@
 <div class="container_header">
     <header>
         <div class="container">
-            <div class="d-flex  aling-items-center">
+            <div class="d-flex aling-items-center">
                 <a href="{% url 'home' %}" class="logo">Ocean</a>
                 <!-- menu -->
                 <nav class="midle_header">
@@ -59,7 +60,6 @@
                         <li><a class="a_main" href="{% url 'contact' %}">Контакты</a></li>
                         <li><a class="a_main" href="{% url 'reviews_list' %}">Отзывы</a></li>
                         <li><a class="a_main" href="{% url 'about' %}">О нас</a></li>
-
 
                     </ul>
                 </nav>
@@ -72,10 +72,9 @@
                 {% else %}
                 <div class="log_btn">
                     <nav class="midle_header ">
-                        <ul class="d-flex ">
-
+                        <ul class="d-flex aling-items-center">
                             <li>
-                                <a href="{% url 'contact' %}"><img src="{% static 'main/img/header_menu.avif' %}"
+                                <a href="#"><img src="{% static 'main/img/header_menu.avif' %}"
                                                                    alt="mdo" class="header_menu_png"></a>
                                 <ul class="drop-down">
                                     {% for group in user.groups.all %}
@@ -99,8 +98,11 @@
                                     {% endfor %}
                                 </ul>
                             </li>
-
-
+                            {% for group in user.groups.all %}
+                            {% if not user.telegram_chat_id and user.is_authenticated and group.name == "Customer" %}
+                            <a class="tg_main" href="https://telegram.me/StepFinallyBot"><button class="green-button-tg">Telegram</button></a>
+                            {% endif %}
+                            {% endfor %}
                         </ul>
                     </nav>
                 </div>
@@ -160,9 +162,9 @@
             </a></li>
         </ul>
         <ul class="menu">
-            <li class="menu__item"><a class="menu__link" href="{% url 'home' %}">Home</a></li>
-            <li class="menu__item"><a class="menu__link" href="{% url 'about' %}">About</a></li>
-            <li class="menu__item"><a class="menu__link" href="{% url 'contact' %}">Contact</a></li>
+            <li class="menu__item"><a class="menu__link" href="{% url 'home' %}">Главная</a></li>
+            <li class="menu__item"><a class="menu__link" href="{% url 'about' %}">О нас</a></li>
+            <li class="menu__item"><a class="menu__link" href="{% url 'contact' %}">Контакты</a></li>
 
         </ul>
         <p>&copy;2023 Kirill Yerokhin | Made by human</p>

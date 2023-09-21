@@ -4,14 +4,14 @@
 <div class="contact">
     <form class="form_contact" method="post" action="{% url 'contact_view' %}">
         {% csrf_token %}
-        <h2>CONTACT US</h2>
-        <p type="Name:"><input class="input_contact" name="name" placeholder="Write your name here.."></input></p>
-        <p type="Email:"><input class="input_contact" name="email" placeholder="Let us know how to contact you back.."></input></p>
-        <p type="Message:"><input class="input_contact" name="message" placeholder="What would you like to tell us.."></input></p>
-        <button class="button_contact" type="submit">Send Message</button>
+        <h2>Связь с нами</h2>
+        <p type="Name:"><input class="input_contact" name="name" placeholder="Напишите ваше имя..."></input></p>
+        <p type="Email:"><input class="input_contact" name="email" placeholder="Напишите вашу почту или телефон"></input></p>
+        <p type="Message:"><input class="input_contact" name="message" placeholder="Напишите ваше сообщение"></input></p>
+        <button class="button_contact" type="submit">Отправить</button>
         <div class="contact_number">
-            <span class="span_number fa fa-phone"></span>001 1023 567
-            <span class="span_number fa fa-envelope-o"></span> contact@company.com
+            <span class="span_number fa fa-phone"></span>+375291111111
+            <span class="span_number fa fa-envelope-o"></span>my_cafe_step@rambler.ru
         </div>
     </form>
 </div>

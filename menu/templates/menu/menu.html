@@ -1,5 +1,5 @@
 {% extends 'main/layout.html' %}
-{% block title %}Menu{% endblock %}
+{% block title %}Меню{% endblock %}
 {% block content %}
 
 <div class="container-dish">
@@ -12,16 +12,20 @@
                 <img src="{{ dish.image_url }}" alt="{{ dish.name }}">
                 <h3 class="a_main">{{ dish.name }}</h3>
                 <p class="a_main">Цена: {{ dish.price }} руб.</p>
+                {% if not user.is_authenticated %}
+                <a href="{% url 'dish_detail' dish.pk %}"><button class="blue-button">Открыть</button></a>
+
+                {% endif %}
                 {% for group in user.groups.all %}
                     {% if group.name == "Administration" %}
-                        <a href="{% url 'dish_detail' dish.pk %}"><button class="green-button">Open</button></a>
+                        <a href="{% url 'dish_detail' dish.pk %}"><button class="blue-button">Открыть</button></a>
 
                     {% endif %}
                 {% endfor %}
                 {% for group in user.groups.all %}
                     {% if group.name == "Customer" %}
-                        <a href="{% url 'dish_detail' dish.pk %}"><button class="green-button">Open</button></a>
-                        <a href="{% url 'add_to_cart' dish.pk %}"><button class="green-button">Buy</button></a>
+                        <a href="{% url 'dish_detail' dish.pk %}"><button class="blue-button">Открыть</button></a>
+                        <a href="{% url 'add_to_cart' dish.pk %}"><button class="green-button">Купить</button></a>
                     {% endif %}
                 {% endfor %}
             </div>
@@ -38,16 +42,19 @@
                 <img src="{{ dish.image_url }}" alt="{{ dish.name }}">
                 <h3 class="a_main">{{ dish.name }}</h3>
                 <p class="a_main">Цена: {{ dish.price }} руб.</p>
+                {% if not user.is_authenticated %}
+                <a href="{% url 'dish_detail' dish.pk %}"><button class="blue-button">Открыть</button></a>
+                {% endif %}
                 {% for group in user.groups.all %}
                     {% if group.name == "Administration" %}
-                        <a href="{% url 'dish_detail' dish.pk %}"><button class="green-button">Open</button></a>
+                        <a href="{% url 'dish_detail' dish.pk %}"><button class="blue-button">Купить</button></a>
 
                     {% endif %}
                 {% endfor %}
                 {% for group in user.groups.all %}
                     {% if group.name == "Customer" %}
-                        <a href="{% url 'dish_detail' dish.pk %}"><button class="green-button">Open</button></a>
-                        <a href="{% url 'add_to_cart' dish.pk %}"><button class="green-button">Buy</button></a>
+                        <a href="{% url 'dish_detail' dish.pk %}"><button class="blue-button">Открыть</button></a>
+                        <a href="{% url 'add_to_cart' dish.pk %}"><button class="green-button">Купить</button></a>
                     {% endif %}
                 {% endfor %}
             </div>
@@ -64,16 +71,19 @@
                 <img src="{{ dish.image_url }}" alt="{{ dish.name }}">
                 <h3 class="a_main">{{ dish.name }}</h3>
                 <p class="a_main">Цена: {{ dish.price }} руб.</p>
+                {% if not user.is_authenticated %}
+                <a href="{% url 'dish_detail' dish.pk %}"><button class="blue-button">Открыть</button></a>
+                {% endif %}
                 {% for group in user.groups.all %}
                     {% if group.name == "Administration" %}
-                        <a href="{% url 'dish_detail' dish.pk %}"><button class="green-button">Open</button></a>
+                        <a href="{% url 'dish_detail' dish.pk %}"><button class="blue-button">Купить</button></a>
 
                     {% endif %}
                 {% endfor %}
                 {% for group in user.groups.all %}
                     {% if group.name == "Customer" %}
-                        <a href="{% url 'dish_detail' dish.pk %}"><button class="green-button">Open</button></a>
-                        <a href="{% url 'add_to_cart' dish.pk %}"><button class="green-button">Buy</button></a>
+                        <a href="{% url 'dish_detail' dish.pk %}"><button class="blue-button">Открыть</button></a>
+                        <a href="{% url 'add_to_cart' dish.pk %}"><button class="green-button">Купить</button></a>
                     {% endif %}
                 {% endfor %}
             </div>

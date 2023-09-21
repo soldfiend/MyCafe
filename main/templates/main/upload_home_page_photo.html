@@ -16,8 +16,10 @@
         <img src="{{ photo.image.url }}" alt="{{ photo.title }}" style="width:500px;">
         <form method="post" action="{% url 'delete_photo' photo.id %}">
             {% csrf_token %}
-            <button type="submit" class="btn_cart btn-danger">Удалить</button>
+            <br>
+            <button type="submit" class="dell-button">Удалить</button>
         </form>
+       <br>
 
     {% endfor %}
 </div>

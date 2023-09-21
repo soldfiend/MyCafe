@@ -33,8 +33,8 @@ def register_view(request):
 
             # Добавляем пользователя в группу "Customer"
             group.user_set.add(user)
-
-            return redirect('login')  # Перенаправление на страницу входа после регистрации
+            login(request, user)
+            return redirect('home')  # Перенаправление на страницу входа после регистрации
     else:
         form = RegistrationForm()
     return render(request, 'users/register.html', {'form': form})

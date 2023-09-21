@@ -1,5 +1,5 @@
 body{
-background-color: #c2e1f2;
+background-color: #fff;
 }
 .d-flex {
   display: flex;
@@ -114,7 +114,7 @@ p {
 
 .body_container {
   display: flex;
-  background: #c2e1f2;
+  background: #fff;
   justify-content: flex-end;
   align-items: flex-end;
   min-height: 55vh;
@@ -241,14 +241,14 @@ p {
 .category-dinner {
     flex: 1; /* Контейнеры займут равные части доступной ширины */
     padding: 20px; /* Добавляет отступы внутри контейнеров */
-    border: 1px solid #ccc; /* Добавляет границу для разделения контейнеров */
-    background-color: #f5f5f5; /* Задает фоновый цвет контейнеров */
+    border: 1px solid #fff; /* Добавляет границу для разделения контейнеров */
+    background-color: #fff; /* Задает фоновый цвет контейнеров */
 }
 .category-lunch{
     flex: 1; /* Контейнеры займут равные части доступной ширины */
     padding: 20px; /* Добавляет отступы внутри контейнеров */
-    border: 1px solid #ccc; /* Добавляет границу для разделения контейнеров */
-    background-color: grey; /* Задает фоновый цвет контейнеров */
+    border: 1px solid #fff; /* Добавляет границу для разделения контейнеров */
+    background-color: #eaf2ff; /* Задает фоновый цвет контейнеров */
 }
 .menu-items {
     display: flex;
@@ -361,15 +361,7 @@ p {
 }
 
 /* Стиль для кнопки Login */
-.green-button {
-  background-color: #4caf50; /* Цвет фона кнопки */
-  color: #fff; /* Цвет текста кнопки */
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-weight: bold;
-}
+
 .red-button {
   background-color:  #B00000; /* Цвет фона кнопки */
   color: #fff; /* Цвет текста кнопки */
@@ -432,15 +424,132 @@ select {
     background-size: 20px;
     padding-right: 30px;
 }
-
 .green-button {
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-weight: bold;
+  background-color: #4caf50; /* Цвет фона кнопки */
+  color: #fff; /* Цвет текста кнопки */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.green-button {
+--c:  #44944A; /* the color*/
+color:#004524;
+  box-shadow: 0 0 0 .1em inset var(--c);
+  --_g: linear-gradient(var(--c) 0 0) no-repeat;
+  background:
+    var(--_g) calc(var(--_p,0%) - 100%) 0%,
+    var(--_g) calc(200% - var(--_p,0%)) 0%,
+    var(--_g) calc(var(--_p,0%) - 100%) 100%,
+    var(--_g) calc(200% - var(--_p,0%)) 100%;
+  background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
+  outline-offset: .1em;
+  transition: background-size .4s, background-position 0s .4s;
+}
+.green-button:hover {
+  --_p: 100%;
+  transition: background-position .4s, background-size 0s;
+}
+.blue-button {
+  background-color: #4caf50; /* Цвет фона кнопки */
+  color: #fff; /* Цвет текста кнопки */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.blue-button {
+--c:  #3586FF; /* the color*/
+color:#255db2;
+  box-shadow: 0 0 0 .1em inset var(--c);
+  --_g: linear-gradient(var(--c) 0 0) no-repeat;
+  background:
+    var(--_g) calc(var(--_p,0%) - 100%) 0%,
+    var(--_g) calc(200% - var(--_p,0%)) 0%,
+    var(--_g) calc(var(--_p,0%) - 100%) 100%,
+    var(--_g) calc(200% - var(--_p,0%)) 100%;
+  background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
+  outline-offset: .1em;
+  transition: background-size .4s, background-position 0s .4s;
+}
+.blue-button:hover {
+  --_p: 100%;
+  transition: background-position .4s, background-size 0s;
+}
+
+.dell-button {
+  background-color: #4caf50; /* Цвет фона кнопки */
+  color: #fff; /* Цвет текста кнопки */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.dell-button {
+--c:  #B00000; /* the color*/
+color:#900020;
+  box-shadow: 0 0 0 .1em inset var(--c);
+  --_g: linear-gradient(var(--c) 0 0) no-repeat;
+  background:
+    var(--_g) calc(var(--_p,0%) - 100%) 0%,
+    var(--_g) calc(200% - var(--_p,0%)) 0%,
+    var(--_g) calc(var(--_p,0%) - 100%) 100%,
+    var(--_g) calc(200% - var(--_p,0%)) 100%;
+  background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
+  outline-offset: .1em;
+  transition: background-size .4s, background-position 0s .4s;
+}
+.dell-button:hover {
+  --_p: 100%;
+  transition: background-position .4s, background-size 0s;
+}
+.green-button-tg{
+
+  color: #fff; /* Цвет текста кнопки */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.green-button-tg{
+--c:  #FFA500; /* the color*/
+color:#44944A;;
+}
+.green-button-tg:hover {
+  --_p: 100%;
+  transition: background-position .4s, background-size 0s;
+}
+
+.go-button {
+  background-color: #4caf50; /* Цвет фона кнопки */
+  color: #fff; /* Цвет текста кнопки */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.go-button {
+--c:  #FFA500; /* the color*/
+color:#D2691E;
+  box-shadow: 0 0 0 .1em inset var(--c);
+  --_g: linear-gradient(var(--c) 0 0) no-repeat;
+  background:
+    var(--_g) calc(var(--_p,0%) - 100%) 0%,
+    var(--_g) calc(200% - var(--_p,0%)) 0%,
+    var(--_g) calc(var(--_p,0%) - 100%) 100%,
+    var(--_g) calc(200% - var(--_p,0%)) 100%;
+  background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
+  outline-offset: .1em;
+  transition: background-size .4s, background-position 0s .4s;
+}
+.go-button:hover {
+  --_p: 100%;
+  transition: background-position .4s, background-size 0s;
 }
 
 .btn-link {
@@ -452,6 +561,18 @@ select {
     text-decoration: underline;
 }
 
+.green-border {
+    border: 2px solid #44944A; /* Зеленая обводка толщиной 2px */
+    border-radius:20px;
+    padding: 10px; /* Добавление отступов вокруг текста */
+    display: inline-block; /* Это нужно для того, чтобы рамка не расширяла текст на всю ширину */
+}
+.red-border {
+    border: 2px solid #B00000; /* Зеленая обводка толщиной 2px */
+    border-radius:20px;
+    padding: 10px; /* Добавление отступов вокруг текста */
+    display: inline-block; /* Это нужно для того, чтобы рамка не расширяла текст на всю ширину */
+}
 
 /* Добавьте этот CSS для улучшения стилей корзины */
 .cart-container {
@@ -635,7 +756,7 @@ background-color: blue;
 .reviews-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 /* Стили для каждого отзыва */
@@ -721,7 +842,7 @@ background-color: blue;
 }
 
 .contact_number{content:'Hi';position:absolute;bottom:-15px;right:-20px;background:#50505a;color:#fff;width:320px;padding:16px 4px 16px 0;border-radius:6px;font-size:13px;box-shadow:10px 10px 40px -14px #000}
-.span_number{margin:0 5px 0 15px}
+.span_number{margin:0 5px 0 5px}
 
 .form_contact{
 width:340px;
